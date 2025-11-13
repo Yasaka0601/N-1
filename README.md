@@ -183,10 +183,6 @@ SELECT "pokemons".* FROM "pokemons"
 SELECT "trainers".* FROM "trainers" WHERE "trainers"."id" IN (1, 2, 3)
 ```
 
-## 実際にやってみる。
-それでは実際にやってみましょう。
-
-
 ## N + 1問題が発生しても気づくことができるのか？
 
 私は、気づくことが出来ないと自信を持って言うことが出来ます！！<br>
@@ -222,3 +218,10 @@ docker compose run web rails g bullet:install
 
 [詳しくはこちらの記事へ](https://zenn.dev/linkedge/articles/cd1186e196bb9f#bullet%E3%81%A8%E3%81%AF)
 
+## まとめ
+
+1. N+1問題とは、関連データをループ中に都度取得してしまうことで大量のSQLが発行される問題。
+
+2. includes で事前にまとめて取得することで解消できる。
+
+3. Gem bullet を使えば、N + 1問題が発生した時に警告を出してくれる。
